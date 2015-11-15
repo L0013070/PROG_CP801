@@ -1,9 +1,21 @@
 package jobqueue;
 
+/**
+ *
+ * @author Dietmar
+ */
 public interface Job {
 	
-	public void doJob();
-	public void setError(Exception exeption);
+    /**
+     *
+     */
+    public void doJob();
+
+    /**
+     *
+     * @param error
+     */
+    public void setError(Throwable error);
 	
 
 }

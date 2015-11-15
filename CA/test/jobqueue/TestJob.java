@@ -24,7 +24,7 @@ class TestJob implements Job {
 	}
 
 	@Override
-	public void setError(Exception exeption) {
+	public void setError(Throwable error) {
 		// TODO Auto-generated method stub
 
 	}
