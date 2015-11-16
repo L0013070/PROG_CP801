@@ -1,16 +1,16 @@
 package jobqueue;
 
-import java.util.ArrayList;
-import java.util.concurrent.Semaphore;
 import junit.framework.TestCase;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
+/**
+ *
+ * @author L00131070
+ */
 public class JobQueueTest extends TestCase {
 
+    /**
+     *
+     */
     public void testJobQueue() {
         System.out.println("testJobQueue");
         JobQueue queue = new JobQueue();
@@ -22,8 +22,12 @@ public class JobQueueTest extends TestCase {
         System.out.println("Queue startup");
         queue.setRunning(true);
         assertTrue(queue.isRunning());
+        System.out.println("Test testConstructor successful");
     }
 
+    /**
+     *
+     */
     public void testAdd() {
         System.out.println("testAdd");
         JobQueue queue = new JobQueue();
@@ -45,9 +49,13 @@ public class JobQueueTest extends TestCase {
                 }
             }
         }
-        queue.finalize();
+        queue.setRunning(false);
+        System.out.println("Test testAdd successful");
     }
 
+    /**
+     *
+     */
     public void testSetRunning() {
         System.out.println("testSetRunning");
         JobQueue queue = new JobQueue();
@@ -62,14 +70,18 @@ public class JobQueueTest extends TestCase {
         assertTrue(queue.isRunning());
         queue.setRunning(false);
         assertTrue(!queue.isRunning());
+        System.out.println("Test testSetRunning successful");
     }
 
+    /**
+     *
+     */
     public void testErrorJob() {
         System.out.println("testErrorJob");
         JobQueue queue = new JobQueue();
         queue.add(new TestErrorJob());
         queue.setRunning(false);
-
+        System.out.println("Test testErrorJob successful");
     }
 
 }
