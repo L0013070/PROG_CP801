@@ -146,7 +146,7 @@ public class JobQueue {
             return;
         }
         synchronized (this) {
-            if (isRunning()) {
+            if (!running) {
                 this.running = false;
                 waitingThreads.release(MAXTHREADS);
                 threads.stream().forEach((thread) -> {
@@ -167,7 +167,7 @@ public class JobQueue {
                 this.running = true;
                 for (int i = 0; i < threads.size(); i++) {
                     try {
-                        threads.get(i).join();
+                        threads.remove(i).join();
                     } catch (InterruptedException e) {
                         handleThrowables(e);
                     }
