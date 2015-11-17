@@ -1,5 +1,9 @@
 package jobqueue;
 
+import java.util.ArrayList;
+import java.util.concurrent.Semaphore;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import junit.framework.TestCase;
 
 /**
@@ -7,6 +11,16 @@ import junit.framework.TestCase;
  * @author L00131070
  */
 public class JobQueueTest extends TestCase {
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+    }
+
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }
 
     /**
      *
@@ -16,9 +30,19 @@ public class JobQueueTest extends TestCase {
         JobQueue queue = new JobQueue();
         assertTrue(queue != null);
         assertTrue(queue.isRunning());
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
         System.out.println("Queue shutdown");
         queue.setRunning(false);
         assertTrue(!queue.isRunning());
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
         System.out.println("Queue startup");
         queue.setRunning(true);
         assertTrue(queue.isRunning());
@@ -31,15 +55,14 @@ public class JobQueueTest extends TestCase {
     public void testAdd() {
         System.out.println("testAdd");
         JobQueue queue = new JobQueue();
-        try {
-            queue.add(null);
+        if (queue.add(null)) {
             fail(" NULL JOB");
-        } catch (NullPointerException ex) {
         }
         for (int i = 0; i < 40; i++) {
             Job job = new TestJob();
             boolean test = queue.add(job);
             if (!test) {
+                assertTrue(!test && i == 20);
                 System.out.println(i + " " + test + " waiting 1s");
                 try {
                     Thread.sleep(1000);
@@ -82,6 +105,18 @@ public class JobQueueTest extends TestCase {
         queue.add(new TestErrorJob());
         queue.setRunning(false);
         System.out.println("Test testErrorJob successful");
+    }
+
+    /**
+     * Test of getWaitingThreads method, of class JobQueue.
+     */
+       public void testHandleThrowables() {
+        System.out.println("handleThrowables");
+        Throwable ex = new Exception("TestException");
+        JobQueue instance = new JobQueue();
+        instance.handleThrowables(ex);
+        System.out.println("Test testHandleThrowables successful");
+        System.err.flush();
     }
 
 }
