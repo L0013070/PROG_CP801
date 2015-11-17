@@ -73,7 +73,7 @@ public class JobQueueTest extends TestCase {
 	/**
 	 * Test of setRunning method, of class JobQueue.
 	 *
-	 * @throws InterruptedException 
+	 * @throws InterruptedException
 	 *
 	 */
 	public void testSetRunning() throws InterruptedException {
@@ -91,13 +91,23 @@ public class JobQueueTest extends TestCase {
 		queue.setRunning(true);
 		assertTrue(queue.isRunning());
 		Thread.sleep(1000);
+		assertTrue(queue.getWaitingThreads().getQueueLength() == 10);
+		assertTrue(queue.getFullQueue().availablePermits() == 20);
+		assertTrue(queue.getThreads().size() == 10);
+		assertTrue(queue.getQueue().isEmpty());
 		queue.setRunning(false);
 		assertTrue(!queue.isRunning());
+		assertTrue(queue.getWaitingThreads().getQueueLength() == 0);
+		assertTrue(queue.getFullQueue().availablePermits() == 0);
+		assertTrue(queue.getThreads().isEmpty());
+		assertTrue(queue.getQueue().isEmpty());
+
 		System.out.println("Test testSetRunning successful");
 	}
 
 	/**
-	 * Test of handling exceptions thrown from doJob of the job interface in class JobQueue Thread.
+	 * Test of handling exceptions thrown from doJob of the job interface in
+	 * class JobQueue Thread.
 	 */
 	public void testErrorJob() {
 		System.out.println("testErrorJob");

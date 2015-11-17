@@ -80,6 +80,14 @@ public class JobQueue {
     }
 
     /**
+     * Returns the LinkedQueue
+	 * @return the queue
+	 */
+	protected ConcurrentLinkedQueue<Job> getQueue() {
+		return queue;
+	}
+
+	/**
      *  Creates a JobQueue
      */
     public JobQueue() {
@@ -151,6 +159,7 @@ public class JobQueue {
                 waitingThreads.drainPermits();
                 fullQueue.drainPermits();
                 queue.clear();
+                threads.clear();
             } else {
                 waitingThreads.drainPermits();
                 fullQueue.drainPermits();
