@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="0" key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel"/>
+	<item value="619" key="DIALOG_WIDTH"/>
+	<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+	<item value="true" key="CommitDialog.showUntracked"/>
+	<item value="537" key="DIALOG_HEIGHT"/>
+	<item value="203" key="DIALOG_X_ORIGIN"/>
+	<item value="26" key="DIALOG_Y_ORIGIN"/>
+	<list key="CommitDialog.authorValues">
+		<item value="L00131070 &lt;L00131070@LYLIB2-16.lyitnet.lyit.ie&gt;"/>
+		<item value="L00131070 &lt;L00131070@LYLIB2-35.lyitnet.lyit.ie&gt;"/>
+		<item value="L00131070 &lt;L00131070@LYLIB2-29.lyitnet.lyit.ie&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="L00131070 &lt;L00131070@LYLIB2-16.lyitnet.lyit.ie&gt;"/>
+		<item value="L00131070 &lt;L00131070@LYLIB2-35.lyitnet.lyit.ie&gt;"/>
+		<item value="L00131070 &lt;L00131070@LYLIB2-29.lyitnet.lyit.ie&gt;"/>
+	</list>
+	<section name="GitImportWizard">
+		<item value="true" key="GitProjectsImportPage.STORE_NESTED_PROJECTS"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
+		<item value="666" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="457" key="DIALOG_HEIGHT"/>
+		<item value="515" key="DIALOG_X_ORIGIN"/>
+		<item value="209" key="DIALOG_Y_ORIGIN"/>
+		<list key="sashWeights">
+			<item value="600"/>
+			<item value="400"/>
+		</list>
+	</section>
+	<section name="org.eclipse.egit.ui.COMMIT_DIALOG_SECTION">
+		<item value="642" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="640" key="DIALOG_HEIGHT"/>
+		<item value="527" key="DIALOG_X_ORIGIN"/>
+		<item value="87" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+	</section>
+</section>
