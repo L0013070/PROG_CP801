@@ -24,7 +24,7 @@ public class ExceptionTest {
 			test1(i);
 		}
 		time = System.currentTimeMillis() - time;
-		System.out.println("Test1: "+time+"ms");
+		System.out.println("Test1: "+time+"ms "+((double)time)/0xFFFFFFF);
 		time = System.currentTimeMillis();
 		for (int i = 1; i < 0xFFFFFFF; i++) {
 			try {
@@ -33,7 +33,7 @@ public class ExceptionTest {
 			}
 		}
 		time = System.currentTimeMillis() - time;
-		System.out.println("Test2: "+time+"ms");
+		System.out.println("Test2: "+time+"ms "+((double)time)/0xFFFFFFF);
 	}
 
 }
